@@ -4,7 +4,6 @@
         Sample script with sample constructs to demonstrate performance differences.
     .DESCRIPTION
         Demonstrates the difference between differing Powershell constructs and their performance difference.
-        Can be run in "high" or "low" performance mode.
     .EXAMPLE
 
     .NOTES
