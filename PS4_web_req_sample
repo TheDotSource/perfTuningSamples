@@ -1,0 +1,22 @@
+$ScriptBlock = {
+
+    # Get a suitable credential for ServiceNow
+    $Credential = Get-Credential
+
+    # Initial request to create session variable
+    $uri = "https://your-instance.service-now.com/api/now/table/alm_hardware/21195162eaba4638ba53e4489cd71c47"
+
+    # Initial request to create web session
+    $Session = Invoke-RestMethod -Uri $uri -Method Get -Credential $Credential -SessionVariable WebSession
+
+    $x = 40
+
+    for ($i = 0; $i -le $x; $i++) {
+
+        # Requests using session rather than explicit credential
+        $Device = Invoke-RestMethod -Uri $uri -Method Get -WebSession $WebSession
+    }
+}
+
+$result = Measure-Command -Expression $ScriptBlock
+return $result
